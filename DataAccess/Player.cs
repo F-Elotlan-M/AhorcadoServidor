@@ -12,24 +12,26 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Jugadore
+    public partial class Player
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Jugadore()
+        public Player()
         {
-            this.Salas = new HashSet<Sala>();
+            this.Lobby = new HashSet<Lobby>();
         }
     
-        public int IdJugador { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        public int IdPlayer { get; set; }
+        public string NamePlayer { get; set; }
+        public string Lastname { get; set; }
         public string Email { get; set; }
-        public string Contrasena { get; set; }
+        public string PasswordPlayer { get; set; }
         public string Username { get; set; }
-        public Nullable<int> Puntaje { get; set; }
-        public Nullable<int> PartidasGanadas { get; set; }
+        public int Points { get; set; }
+        public int GamesWin { get; set; }
+        public Nullable<int> IdAvatar { get; set; }
     
+        public virtual Avatar Avatar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sala> Salas { get; set; }
+        public virtual ICollection<Lobby> Lobby { get; set; }
     }
 }

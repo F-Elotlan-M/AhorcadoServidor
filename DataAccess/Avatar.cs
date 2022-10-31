@@ -14,7 +14,16 @@ namespace DataAccess
     
     public partial class Avatar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Avatar()
+        {
+            this.Player = new HashSet<Player>();
+        }
+    
         public int IdAvatar { get; set; }
-        public string nombreAvatar { get; set; }
+        public string NameAvatar { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Player> Player { get; set; }
     }
 }
