@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using BusinessLogic;
-using BusinessLogic.POCO;
 using BusinessLogic.DAO;
 
 namespace WCF
@@ -23,5 +22,15 @@ namespace WCF
             return prueba; 
         }
 
+        public bool Login(String Email, String Password) { 
+            BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
+            DataAccess.Player player = new DataAccess.Player();
+            player = playerDAO.Login(Email, Password);
+            bool player1 = false;
+            if (player.Email.Equals(Email) && player.PasswordPlayer.Equals(Password)) {
+                player1 = true;
+            }
+            return player1;
+        }
     }
 }
