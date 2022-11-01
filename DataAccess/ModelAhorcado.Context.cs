@@ -13,10 +13,10 @@ namespace DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AhorcadoBDEntities : DbContext
+    public partial class AhorcadoDBEntities : DbContext
     {
-        public AhorcadoBDEntities()
-            : base("name=AhorcadoBDEntities")
+        public AhorcadoDBEntities()
+            : base("name=AhorcadoDBEntities")
         {
         }
     
@@ -25,9 +25,9 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Avatar> Avatars { get; set; }
-        public virtual DbSet<Jugadore> Jugadores { get; set; }
-        public virtual DbSet<Partida> Partidas { get; set; }
-        public virtual DbSet<Sala> Salas { get; set; }
+        public virtual DbSet<Avatar> Avatar { get; set; }
+        public virtual DbSet<Lobby> Lobby { get; set; }
+        public virtual DbSet<Player> Player { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

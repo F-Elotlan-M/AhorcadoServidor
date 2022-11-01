@@ -12,8 +12,12 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Partida
+    public partial class Lobby
     {
-        public int IdPartida { get; set; }
+        public int IdLobby { get; set; }
+        public int CodeLobby { get; set; }
+        public Nullable<int> IdPlayer { get; set; }
+    
+        public virtual Player Player { get; set; }
     }
 }

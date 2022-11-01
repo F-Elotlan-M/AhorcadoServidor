@@ -5,6 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using BusinessLogic;
+using BusinessLogic.POCO;
+using BusinessLogic.DAO;
+
 namespace WCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código y en el archivo de configuración a la vez.
@@ -19,5 +22,6 @@ namespace WCF
             prueba = metodos.Fernando();
             return prueba; 
         }
+
     }
 }

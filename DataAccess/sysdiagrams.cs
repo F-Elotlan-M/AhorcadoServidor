@@ -12,12 +12,12 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Sala
+    public partial class sysdiagrams
     {
-        public int IdSala { get; set; }
-        public string codigoDeSala { get; set; }
-        public Nullable<int> CreadorDeSala { get; set; }
-    
-        public virtual Jugadore Jugadore { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
