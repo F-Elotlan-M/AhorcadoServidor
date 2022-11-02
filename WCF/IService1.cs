@@ -13,6 +13,36 @@ namespace WCF
     {
         [OperationContract]
         bool primerMetodo();
+
+        [OperationContract]
+        bool Login(String Email, String Password);
+        [OperationContract]
+        int register(String NamePlayer, String Lastname, String Email, String Password, String Username, int Points, int GamesWin);
+        [OperationContract]
+        int updateDataPlayer(String NamePlayer, String Lastname, String Email, String Password, String Username);
+    }
+
+    [DataContract]
+    public class Player
+    {
+        [DataMember]
+        public int IdPlayer { get; set; }
+        [DataMember]
+        public string NamePlayer { get; set; }
+        [DataMember]
+        public string Lastname { get; set; }
+        [DataMember]
+        public string Email { get; set; }
+        [DataMember]
+        public string PasswordPlayer { get; set; }
+        [DataMember]
+        public string Username { get; set; }
+        [DataMember]
+        public int Points { get; set; }
+        [DataMember]
+        public int GamesWin { get; set; }
+        [DataMember]
+        public Nullable<int> IdAvatar { get; set; }
     }
     /*
     // Utilice un contrato de datos, como se ilustra en el ejemplo siguiente, para agregar tipos compuestos a las operaciones de servicio.

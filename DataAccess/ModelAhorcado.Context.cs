@@ -13,10 +13,10 @@ namespace DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AhorcadoDBEntities : DbContext
+    public partial class AhorcadoDBEntity : DbContext
     {
-        public AhorcadoDBEntities()
-            : base("name=AhorcadoDBEntities")
+        public AhorcadoDBEntity()
+            : base("name=AhorcadoDBEntity")
         {
         }
     
@@ -28,6 +28,5 @@ namespace DataAccess
         public virtual DbSet<Avatar> Avatar { get; set; }
         public virtual DbSet<Lobby> Lobby { get; set; }
         public virtual DbSet<Player> Player { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
