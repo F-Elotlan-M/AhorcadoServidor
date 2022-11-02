@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using DataAccess;
 
@@ -28,26 +29,30 @@ namespace BusinessLogic.DAO
                 }
             }
             return player;
-            /* using (AhorcadoDBEntity db = new AhorcadoDBEntity()) {
-                 Player playerRequest = new Player();
-                 var lista = db.Player;
-                 foreach (var oPlayer in lista) {
-                     if (oPlayer.Email == Email && oPlayer.PasswordPlayer == Password)
-                     {
-                         playerRequest.IdPlayer = (oPlayer.IdPlayer);
-                         playerRequest.NamePlayer = (oPlayer.NamePlayer);
-                         playerRequest.PasswordPlayer = (oPlayer.PasswordPlayer);
-                         playerRequest.Points = (oPlayer.Points);
-                         playerRequest.Email = (oPlayer.Email);
-                         playerRequest.GamesWin = (oPlayer.GamesWin);
-                         playerRequest.Lastname = (oPlayer.Lastname);
-                         playerRequest.Username = (oPlayer.Username);
-                         playerRequest.IdAvatar = (oPlayer.IdAvatar);
-                     }
-                 }
-                 return playerRequest;
-             } */
-        } 
+        }
+
+        public int register(String NamePlayer, String Lastname, String Email, String Password, String Username, int Points, int GamesWin) {
+            int respuesta = 0;
+            using (var context = new AhorcadoDBEntity()) {
+                var newPlayer = context.Player.Add(new Player() { NamePlayer = NamePlayer, Lastname = Lastname, Email = Email, PasswordPlayer = Password, Username = Username, Points = Points, GamesWin = GamesWin });
+                respuesta = context.SaveChanges();
+            }
+            return respuesta;
+        }
+
+        public int updateDataPlayer(String NamePlayer, String Lastname, String Email, String Password, String Username) {
+            int respuesta = 0;
+            using (var context = new AhorcadoDBEntity()) {
+                var playerUpdate = context.Player.First();
+                playerUpdate.NamePlayer = NamePlayer;
+                playerUpdate.Lastname = Lastname;
+                playerUpdate.Email = Email;
+                playerUpdate.PasswordPlayer = Password;
+                playerUpdate.Username = Username; 
+                respuesta = context.SaveChanges();
+            }
+            return respuesta;
+        }
         
     }
 }
