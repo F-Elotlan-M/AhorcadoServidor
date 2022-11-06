@@ -44,8 +44,9 @@ namespace WCF
             return playerDAO.updateDataPlayer(NamePlayer, Lastname, Email, Password, Username);
         }
 
-        public int createLobby(int CodeLobby, int IdPlayer) { 
-            
+        public int createLobby(int CodeLobby, int IdPlayer) {
+            BusinessLogic.DAO.LobbyDAO lobbyDAO = new LobbyDAO();
+            return lobbyDAO.createLobby(CodeLobby, IdPlayer);
         }
     }
 }

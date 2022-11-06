@@ -23,28 +23,5 @@ namespace BusinessLogic.DAO
             }
             return result;
         }
-
-        
-
-        /* public Lobby viewLobby() {
-            Lobby lobby = new Lobby();
-            using (var context = new AhorcadoDBEntity())
-            {
-                int lobbyCount = (from Lobby in context.Lobby
-                                   where == Email && Player.PasswordPlayer == Password
-                                   select Player).Count();
-
-                var players = (from Player in context.Player
-                               where Player.Email == Email && Player.PasswordPlayer == Password
-                               select Player).ToList();
-
-                if (lobbyCount > 0)
-                {
-                    player = players.First();
-                }
-            }
-            return lobby;
-        }*/
-
     }
 }
