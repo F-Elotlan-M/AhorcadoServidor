@@ -9,17 +9,17 @@ namespace WCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IService1" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IService1
+    public interface IPlayer
     {
         [OperationContract]
         bool primerMetodo();
 
         [OperationContract]
-        bool Login(String Email, String Password);
+        bool Login(String email, String password);
         [OperationContract]
-        int register(String NamePlayer, String Lastname, String Email, String Password, String Username, int Points, int GamesWin);
+        int Register(String namePlayer, String lastname, String email, String password, String username, int points, int gamesWin);
         [OperationContract]
-        int updateDataPlayer(String NamePlayer, String Lastname, String Email, String Password, String Username);
+        int UpdateDataPlayer(String namePlayer, String lastname, String email, String password, String username);
     }
 
     [DataContract]
