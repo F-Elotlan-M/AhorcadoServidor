@@ -11,7 +11,7 @@ using BusinessLogic.DAO;
 namespace WCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código y en el archivo de configuración a la vez.
-    public class Service1 : IService1, ISala
+    public class Service1 : IPlayer, ILobby
     {
 
         public bool primerMetodo()
@@ -34,19 +34,19 @@ namespace WCF
             return player1;
         }
 
-        public int register(String NamePlayer, String Lastname, String Email, String Password, String Username, int Points, int GamesWin) {
+        public int Register(String namePlayer, String lastname, String email, String password, String username, int points, int gamesWin) {
             BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
-            return playerDAO.register(NamePlayer, Lastname, Email, Password, Username, Points, GamesWin);
+            return playerDAO.Register(namePlayer, lastname, email, password, username, points, gamesWin);
         }
 
-        public int updateDataPlayer(String NamePlayer, String Lastname, String Email, String Password, String Username) {
+        public int UpdateDataPlayer(String namePlayer, String lastname, String email, String password, String username) {
             BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
-            return playerDAO.updateDataPlayer(NamePlayer, Lastname, Email, Password, Username);
+            return playerDAO.UpdateDataPlayer(namePlayer, lastname, email, password, username);
         }
 
-        public int createLobby(int CodeLobby, int IdPlayer) {
+        public int CreateLobby(int codeLobby, int idPlayer) {
             BusinessLogic.DAO.LobbyDAO lobbyDAO = new LobbyDAO();
-            return lobbyDAO.createLobby(CodeLobby, IdPlayer);
+            return lobbyDAO.CreateLobby(codeLobby, idPlayer);
         }
     }
 }

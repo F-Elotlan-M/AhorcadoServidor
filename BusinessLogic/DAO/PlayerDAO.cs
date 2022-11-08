@@ -11,16 +11,16 @@ namespace BusinessLogic.DAO
         
         }
 
-        public Player Login(String Email, String Password) {
+        public Player Login(String email, String password) {
             Player player = new Player();
             using (var context = new AhorcadoDBEntity())
             {
                 int playersCont = (from Player in context.Player
-                                   where Player.Email == Email && Player.PasswordPlayer == Password
+                                   where Player.Email == email && Player.PasswordPlayer == password
                                    select Player).Count();
 
                 var players = (from Player in context.Player
-                               where Player.Email == Email && Player.PasswordPlayer == Password
+                               where Player.Email == email && Player.PasswordPlayer == password
                                select Player).ToList();
 
                 if (playersCont > 0)
@@ -31,24 +31,24 @@ namespace BusinessLogic.DAO
             return player;
         }
 
-        public int register(String NamePlayer, String Lastname, String Email, String Password, String Username, int Points, int GamesWin) {
+        public int Register(String namePlayer, String lastname, String email, String password, String username, int points, int gamesWin) {
             int respuesta = 0;
             using (var context = new AhorcadoDBEntity()) {
-                var newPlayer = context.Player.Add(new Player() { NamePlayer = NamePlayer, Lastname = Lastname, Email = Email, PasswordPlayer = Password, Username = Username, Points = Points, GamesWin = GamesWin });
+                var newPlayer = context.Player.Add(new Player() { NamePlayer = namePlayer, Lastname = lastname, Email = email, PasswordPlayer = password, Username = username, Points = points, GamesWin = gamesWin });
                 respuesta = context.SaveChanges();
             }
             return respuesta;
         }
 
-        public int updateDataPlayer(String NamePlayer, String Lastname, String Email, String Password, String Username) {
+        public int UpdateDataPlayer(String namePlayer, String lastname, String email, String password, String username) {
             int respuesta = 0;
             using (var context = new AhorcadoDBEntity()) {
                 var playerUpdate = context.Player.First();
-                playerUpdate.NamePlayer = NamePlayer;
-                playerUpdate.Lastname = Lastname;
-                playerUpdate.Email = Email;
-                playerUpdate.PasswordPlayer = Password;
-                playerUpdate.Username = Username; 
+                playerUpdate.NamePlayer = namePlayer;
+                playerUpdate.Lastname = lastname;
+                playerUpdate.Email = email;
+                playerUpdate.PasswordPlayer = password;
+                playerUpdate.Username = username; 
                 respuesta = context.SaveChanges();
             }
             return respuesta;

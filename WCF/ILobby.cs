@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace WCF
 {
     [ServiceContract]
-    public interface ISala
+    public interface ILobby
     {
         [OperationContract]
-        int createLobby(int IdPlayer, int Code);
+        int CreateLobby(int idPlayer, int code);
     }
 
     [DataContract]
