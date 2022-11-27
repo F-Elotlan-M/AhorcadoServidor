@@ -17,9 +17,20 @@ namespace WCF
         [OperationContract]
         bool Login(String email, String password);
         [OperationContract]
-        int Register(String namePlayer, String lastname, String email, String password, String username, int points, int gamesWin);
+        int Register(String namePlayer, String email, String password, String username, int points, int gamesWin);
         [OperationContract]
-        int UpdateDataPlayer(String namePlayer, String lastname, String email, String password, String username);
+        int UpdateDataPlayer(String namePlayer, String email, String password, String username);
+        [OperationContract]
+        string recuperarNombreJugador(String email, String password);
+        [OperationContract]
+        int recuperarIdPlayer(String email, String password);
+        [OperationContract]
+        string recuperarUsername(String email, String password);
+        [OperationContract]
+        int recuperarPoints(String email, String password);
+        [OperationContract]
+        int recuperarGamesWin(String email, String password);
+
     }
 
     [DataContract]

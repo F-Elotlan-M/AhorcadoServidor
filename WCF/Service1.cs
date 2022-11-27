@@ -34,19 +34,45 @@ namespace WCF
             return player1;
         }
 
-        public int Register(String namePlayer, String lastname, String email, String password, String username, int points, int gamesWin) {
+        public int Register(String namePlayer, String email, String password, String username, int points, int gamesWin) {
             BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
-            return playerDAO.Register(namePlayer, lastname, email, password, username, points, gamesWin);
+            return playerDAO.Register(namePlayer, email, password, username, points, gamesWin);
         }
 
-        public int UpdateDataPlayer(String namePlayer, String lastname, String email, String password, String username) {
+        public int UpdateDataPlayer(String namePlayer, String email, String password, String username) {
             BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
-            return playerDAO.UpdateDataPlayer(namePlayer, lastname, email, password, username);
+            return playerDAO.UpdateDataPlayer(namePlayer, email, password, username);
         }
 
         public int CreateLobby(int codeLobby, int idPlayer) {
             BusinessLogic.DAO.LobbyDAO lobbyDAO = new LobbyDAO();
             return lobbyDAO.CreateLobby(codeLobby, idPlayer);
         }
+
+        public string recuperarNombreJugador(String email, String password) {
+            BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
+            return playerDAO.recuperarNombre(email, password);
+        }
+ 
+        public int recuperarIdPlayer(String email, String password){
+            BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
+            return playerDAO.recuperarIdPlayer(email, password);
+        }
+        
+        public string recuperarUsername(String email, String password){
+            BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
+            return playerDAO.recuperarUsername(email, password);
+        }
+        
+        public int recuperarPoints(String email, String password){
+            BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
+            return playerDAO.recuperarPuntos(email, password);
+        }
+        
+        public int recuperarGamesWin(String email, String password){
+            BusinessLogic.DAO.PlayerDAO playerDAO = new PlayerDAO();
+            return playerDAO.recuperarGamesWin(email, password);
+        }
+         
     }
 }
